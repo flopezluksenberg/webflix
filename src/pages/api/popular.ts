@@ -1,16 +1,20 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import MoviesService from "@src/service/movies.service";
 
-const POPULAR_FILMS =
-  "https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20";
-
-type Data = {
+type Movie = {
   name: string;
+  img: string;
 };
 
-export default function handler(
+type Data = Array<Movie>
+
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<any>,
 ) {
-  res.status(200).json({ name: "John Doe" });
+
+  const movies = await MoviesService.getMovies();
+
+  res.status(200).json({ movies });
 }

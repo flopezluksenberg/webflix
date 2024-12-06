@@ -1,0 +1,21 @@
+.Header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px
+}
+
+.Header__hamburger {
+    width: 27px;
+    height: 12px;
+}
+
+.Header__watermark {
+    width: 98px;
+    height: 28px;
+}
+
+.Header__avatar {
+    width: 36px!important;
+    height: 36px!important;
+}
